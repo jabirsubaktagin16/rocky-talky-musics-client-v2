@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "crimso";
+  font-family: "Crimson Text";
   font-weight: 400;
   background-color: var(--background-50);
 }
@@ -170,4 +170,12 @@ small {
     --accent-900: #e2f8d3;
     --accent-950: #f0fce9;
   }
+}
+
+.swiper-button-next,.swiper-button-prev {
+  size: 10px;
+  background-color: #8a4fe3;
+  color: white;
+  padding: 1rem;
+  border-radius: 100%;
 }
