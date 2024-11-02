@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import { HomePageProductSection } from "../../types/homepageproductsection";
+import { FC } from "react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { HomePageProductSection } from "../../types/homepageproductsection";
 import { ProductCard } from "../ProductCard";
 
 export const ProductSection: FC<HomePageProductSection> = ({
@@ -26,7 +26,7 @@ export const ProductSection: FC<HomePageProductSection> = ({
           spaceBetween={30}
           navigation={true}
           autoplay={{
-            delay: 2500,
+            delay: Math.floor(Math.random() * (2600 - 2500 + 1)) + 2600,
             disableOnInteraction: false,
           }}
           modules={[Navigation, Autoplay]}

@@ -7,6 +7,7 @@ import {
   GiTrumpet,
   GiViolin,
 } from "react-icons/gi";
+import { IoCartSharp } from "react-icons/io5";
 import { SiAnimalplanet } from "react-icons/si";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
@@ -22,22 +23,23 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
+      <nav className="border-gray-200 dark:bg-gray-900">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <Link
             to={"/"}
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <img src={logo} className="h-8" alt="Furever Homes Logo" />
+            <img src={logo} className="h-12" alt="Rocky Talky Musics Logo" />
           </Link>
-          <div className="flex items-center space-x-6 rtl:space-x-reverse">
-            <a
-              href="tel:5541251234"
-              className="text-sm  text-gray-500 dark:text-white hover:underline"
-            >
-              (555) 412-1234
-            </a>
 
+          <div className="flex items-center space-x-6 rtl:space-x-reverse">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-48 px-4 py-2 text-sm text-gray-900 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-800 dark:text-white"
+              />
+            </div>
             {currentUser ? (
               <>
                 <div className="flex md:order-2">
@@ -76,11 +78,15 @@ export const Navbar = () => {
             ) : (
               <Link
                 to={"/sign-in"}
-                className="text-sm text-primary-400 hover:underline"
+                className="text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800"
               >
-                Sign In
+                Join Now
               </Link>
             )}
+
+            <button className="text-gray-600 dark:text-white focus:outline-none hover:text-primary-600">
+              <IoCartSharp />
+            </button>
           </div>
         </div>
       </nav>
