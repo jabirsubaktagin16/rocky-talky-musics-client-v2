@@ -1,3 +1,4 @@
+import { Avatar, Dropdown } from "flowbite-react";
 import { FaAngleDown, FaDrumSteelpan, FaThList } from "react-icons/fa";
 import {
   GiAccordion,
@@ -9,8 +10,16 @@ import {
 import { SiAnimalplanet } from "react-icons/si";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import useAuth from "../../hooks/useAuth";
 
 export const Navbar = () => {
+  const { currentUser, logout, loading, error } = useAuth();
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <nav className="bg-transparent border-gray-200 dark:bg-gray-900">
@@ -29,12 +38,49 @@ export const Navbar = () => {
               (555) 412-1234
             </a>
 
-            <Link
-              to={"/sign-in"}
-              className="text-sm text-primary-400 hover:underline"
-            >
-              Sign In
-            </Link>
+            {currentUser ? (
+              <>
+                <div className="flex md:order-2">
+                  <Dropdown
+                    arrowIcon={false}
+                    inline
+                    label={
+                      <Avatar
+                        alt="User settings"
+                        img={currentUser?.data?.userInfo?.avatar}
+                        rounded
+                      />
+                    }
+                  >
+                    <Dropdown.Header>
+                      <span className="block text-sm">
+                        {currentUser?.data?.userInfo?.name?.firstName}{" "}
+                        {currentUser?.data?.userInfo?.name?.lastName}
+                      </span>
+                      <span className="block truncate text-sm font-medium">
+                        {currentUser?.data?.userInfo?.email}
+                      </span>
+                    </Dropdown.Header>
+                    <Dropdown.Item>
+                      <Link to={"/dashboard/my-profile"}>Dashboard</Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item>Settings</Dropdown.Item>
+                    <Dropdown.Item>Earnings</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item>
+                      <button onClick={handleLogOut}>Sign out</button>
+                    </Dropdown.Item>
+                  </Dropdown>
+                </div>
+              </>
+            ) : (
+              <Link
+                to={"/sign-in"}
+                className="text-sm text-primary-400 hover:underline"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       </nav>
