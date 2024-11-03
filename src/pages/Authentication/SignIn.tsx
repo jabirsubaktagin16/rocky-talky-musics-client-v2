@@ -24,21 +24,24 @@ export const SignIn = () => {
     resetErrorState();
 
     // Call the login function and wait for it to finish
-    await login(userData);
+    const result = await login(userData);
+
+    // If login failed, display an error message
+    if (!result.success && result.error) {
+      toast.error(result.error);
+    } else if (result.success) {
+      // If login was successful, navigate to the protected route
+      navigate(from, { replace: true });
+    }
   };
 
   // useEffect to handle side effects like toast and navigation
   useEffect(() => {
-    // If there's an error, display it using toast
-    if (error) {
-      toast.error(error);
-    }
-
     // If login is successful (currentUser exists), navigate to the protected route
     if (currentUser) {
       navigate(from, { replace: true });
     }
-  }, [error, currentUser, navigate, from]); // Runs whenever error or currentUser changes
+  }, [currentUser, navigate, from]); // Runs whenever error or currentUser changes
 
   return (
     <>

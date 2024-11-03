@@ -56,11 +56,11 @@ export const Navbar = () => {
                   >
                     <Dropdown.Header>
                       <span className="block text-sm">
-                        {currentUser?.data?.userInfo?.name?.firstName}{" "}
-                        {currentUser?.data?.userInfo?.name?.lastName}
+                        {currentUser?.userInfo?.name?.firstName}{" "}
+                        {currentUser?.userInfo?.name?.lastName}
                       </span>
                       <span className="block truncate text-sm font-medium">
-                        {currentUser?.data?.userInfo?.email}
+                        {currentUser?.userInfo?.email}
                       </span>
                     </Dropdown.Header>
                     <Dropdown.Item>
@@ -70,7 +70,9 @@ export const Navbar = () => {
                     <Dropdown.Item>Earnings</Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item>
-                      <button onClick={handleLogOut}>Sign out</button>
+                      <span role="button" onClick={handleLogOut}>
+                        Sign out
+                      </span>
                     </Dropdown.Item>
                   </Dropdown>
                 </div>

@@ -24,14 +24,22 @@ const useAuth = () => {
     dispatch(signInStart());
     try {
       const response = await axios.post(`${API_URL}/auth/login`, userData);
-      const user = response.data;
-      if (user.accessToken) {
+      const user = response.data.data;
+
+      if (user?.userInfo?.role === "user" && user.accessToken) {
         // Store the token in local storage (or you can keep it in Redux if preferred)
         localStorage.setItem("access-token", user.accessToken);
+        dispatch(signInSuccess(user));
+        return { success: true, user };
+      } else {
+        const errorMessage = "Only users with a 'user' role can sign in.";
+        dispatch(signInFailure(errorMessage));
+        return { success: false, error: errorMessage };
       }
-      dispatch(signInSuccess(user));
     } catch (err: any) {
-      dispatch(signInFailure(err.message));
+      const errorMessage = err.message;
+      dispatch(signInFailure(errorMessage));
+      return { success: false, error: errorMessage };
     }
   };
 
