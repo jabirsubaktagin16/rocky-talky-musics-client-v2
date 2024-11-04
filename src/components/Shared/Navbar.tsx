@@ -42,7 +42,7 @@ export const Navbar = () => {
             </div>
             {currentUser ? (
               <>
-                <div className="flex md:order-2">
+                <div className="flex">
                   <Dropdown
                     arrowIcon={false}
                     inline
@@ -69,10 +69,8 @@ export const Navbar = () => {
                     <Dropdown.Item>Settings</Dropdown.Item>
                     <Dropdown.Item>Earnings</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item>
-                      <span role="button" onClick={handleLogOut}>
-                        Sign out
-                      </span>
+                    <Dropdown.Item onClick={handleLogOut}>
+                      Sign out
                     </Dropdown.Item>
                   </Dropdown>
                 </div>

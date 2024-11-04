@@ -4,6 +4,7 @@ import { MdOutlineAlternateEmail, MdPassword } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginBG from "../../assets/login-bg.jpg";
 import { GoogleLogin } from "../../components/GoogleLogin";
+import { Loading } from "../../components/Shared/Loading";
 import { PageTitle } from "../../components/Shared/PageTitle";
 import useAuth from "../../hooks/useAuth";
 
@@ -42,6 +43,8 @@ export const SignIn = () => {
       navigate(from, { replace: true });
     }
   }, [currentUser, navigate, from]); // Runs whenever error or currentUser changes
+
+  if (loading) return <Loading />;
 
   return (
     <>
