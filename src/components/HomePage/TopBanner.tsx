@@ -1,13 +1,13 @@
 import { Autoplay, Pagination } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import one from "../../../public/banner/1.png";
-import two from "../../../public/banner/2.png";
-import three from "../../../public/banner/3.png";
-import four from "../../../public/banner/4.png";
-import five from "../../../public/banner/5.png";
-import six from "../../../public/banner/6.png";
-import seven from "../../../public/banner/7.png";
+import one from "../../assets/banner/1.png";
+import two from "../../assets/banner/2.png";
+import three from "../../assets/banner/3.png";
+import four from "../../assets/banner/4.png";
+import five from "../../assets/banner/5.png";
+import six from "../../assets/banner/6.png";
+import seven from "../../assets/banner/7.png";
 import { TopBannerFile } from "../TopBannerFile";
 
 export const TopBanner = () => {
@@ -66,10 +66,10 @@ export const TopBanner = () => {
       </SwiperSlide>
       <SwiperSlide>
         <TopBannerFile
-          backgroundColor={"bg-[#21467a]"}
-          heading={"Strum into Expression with Guitars!"}
+          backgroundColor={"bg-[#ec8b9f]"}
+          heading={"Enchanting Melodies with the Flute!"}
           paragraph={
-            "Explore our guitars to find your perfect sound. From acoustic warmth to electric flair, each guitar is crafted for musicians of every style"
+            "Explore the soothing, ethereal sounds of the flute. Our collection is crafted to produce pure, enchanting tones, perfect for any musical style"
           }
           imgSrc={four}
         />

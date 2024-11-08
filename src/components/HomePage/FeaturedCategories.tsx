@@ -1,9 +1,9 @@
-import acousticGuitar from "../../../public/categories/accoustic-guitar.png";
-import bassGuitar from "../../../public/categories/bass-guitar.png";
-import drums from "../../../public/categories/drums.png";
-import keyboard from "../../../public/categories/keyboard.png";
-import trumpet from "../../../public/categories/trumpet.png";
-import violin from "../../../public/categories/violin.png";
+import acousticGuitar from "../../assets/categories/accoustic-guitar.png";
+import bassGuitar from "../../assets/categories/bass-guitar.png";
+import drums from "../../assets/categories/drums.png";
+import keyboard from "../../assets/categories/keyboard.png";
+import trumpet from "../../assets/categories/trumpet.png";
+import violin from "../../assets/categories/violin.png";
 
 export const FeaturedCategories = () => {
   return (
