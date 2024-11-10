@@ -1,27 +1,18 @@
 import { ProductCard } from "../components/ProductCard";
 import { Loading } from "../components/Shared/Loading";
-import useProducts from "../hooks/useProducts";
+import { PageTitle } from "../components/Shared/PageTitle";
+import { useProducts } from "../hooks/useProducts";
 import { ProductProps } from "../types/product";
 
 export const Products = () => {
-  const { products, loading, productsRefetch } = useProducts();
+  const { useAllProducts } = useProducts;
+  const { products, loading, productsRefetch } = useAllProducts();
 
   if (loading) return <Loading />;
   return (
-    <section>
+    <>
+      <PageTitle title={"Products"} />
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <header>
-          <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
-            Product Collection
-          </h2>
-
-          <p className="mt-4 max-w-md text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-            praesentium cumque iure dicta incidunt est ipsam, officia dolor
-            fugit natus?
-          </p>
-        </header>
-
         <div className="mt-8 block lg:hidden">
           <button className="flex cursor-pointer items-center gap-2 border-b border-gray-400 pb-1 text-gray-900 transition hover:border-gray-600">
             <span className="text-sm font-medium"> Filters & Sorting </span>
@@ -389,9 +380,9 @@ export const Products = () => {
           </div>
 
           <div className="lg:col-span-3">
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {products?.data?.map((product: ProductProps) => (
-                <li key={product._id}>
+                <li key={product._id} className="h-full">
                   <ProductCard product={product} />
                 </li>
               ))}
@@ -399,6 +390,6 @@ export const Products = () => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };

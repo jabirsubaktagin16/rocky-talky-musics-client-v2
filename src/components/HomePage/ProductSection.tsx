@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HomePageProductSection } from "../../types/homepageproductsection";
+import { ProductProps } from "../../types/product";
 import { ProductCard } from "../ProductCard";
 
 export const ProductSection: FC<HomePageProductSection> = ({
@@ -36,24 +37,11 @@ export const ProductSection: FC<HomePageProductSection> = ({
             "--swiper-navigation-size": "12px",
           }}
         >
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
-          <SwiperSlide>
-            <ProductCard />
-          </SwiperSlide>
+          {arrayList?.map((product: ProductProps) => (
+            <SwiperSlide>
+              <ProductCard product={product} />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

@@ -132,24 +132,24 @@ export const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to={"/products/guitars"}
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
-                          <span className="sr-only">Bass Guitar</span>
+                          <span className="sr-only">Guitars</span>
                           <GiGuitar className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
-                          Bass Guitar
-                        </a>
+                          Guitars
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to={"/products/violins"}
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
                           <span className="sr-only">Violin</span>
                           <GiViolin className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
                           Violin
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

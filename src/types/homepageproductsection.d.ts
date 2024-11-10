@@ -1,6 +1,8 @@
+import { ProductProps } from "./product";
+
 export interface HomePageProductSection {
   title: string;
   paragraph: string;
-  arrayList?: null;
+  arrayList?: ProductProps[];
   productsToBeDisplayed?: number;
 }

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useProducts = () => {
+const useAllProducts = () => {
   const axiosPublic = useAxiosPublic();
   const {
     data: products,
@@ -18,4 +18,24 @@ const useProducts = () => {
   return { products, loading, productsRefetch };
 };
 
-export default useProducts;
+const useNewProducts = () => {
+  const axiosPublic = useAxiosPublic();
+  const {
+    data: products,
+    isPending: loading,
+    refetch: productsRefetch,
+  } = useQuery({
+    queryKey: ["products", "latest"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/products/latest");
+      return res.data;
+    },
+  });
+
+  return { products, loading, productsRefetch };
+};
+
+export const useProducts = {
+  useAllProducts,
+  useNewProducts,
+};

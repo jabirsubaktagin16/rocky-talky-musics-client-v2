@@ -3,8 +3,11 @@ import { ProductCardProps } from "../types/product";
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <a href="#" className="group relative block overflow-hidden">
-      <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
+    <a
+      href="#"
+      className="group relative block overflow-hidden bg-white border h-full flex flex-col justify-between"
+    >
+      <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
         <span className="sr-only">Wishlist</span>
 
         <svg
@@ -13,7 +16,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="size-4"
+          className="h-4 w-4"
         >
           <path
             strokeLinecap="round"
@@ -29,18 +32,16 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
         className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
       />
 
-      <div className="relative border border-gray-100 bg-white p-6">
-        <h3 className="mt-4 text-lg font-medium text-gray-900">
-          {product?.name}
-        </h3>
-
-        <p className="mt-1.5 text-sm text-gray-700">${product?.price}</p>
-
-        <form className="mt-4">
-          <button className="block uppercase w-full rounded bg-primary-400 text-white p-4 text-sm font-medium transition hover:scale-105">
+      <div className="p-6 flex flex-col justify-between flex-1">
+        <div>
+          <h3 className="text-lg font-medium text-gray-900">{product?.name}</h3>
+        </div>
+        <div className="mt-4 ">
+          <p className="text-sm text-gray-700">${product?.price}</p>
+          <button className="mt-2 w-full rounded bg-primary-400 text-white p-4 text-sm font-medium uppercase transition hover:scale-105">
             Add to Cart
           </button>
-        </form>
+        </div>
       </div>
     </a>
   );
