@@ -1,10 +1,12 @@
 import { FC } from "react";
+import { FaCartPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { ProductCardProps } from "../types/product";
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
-    <a
-      href="#"
+    <Link
+      to={`/products/${product._id}`}
       className="group relative block overflow-hidden bg-white border h-full flex flex-col justify-between"
     >
       <button className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
@@ -37,12 +39,16 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <h3 className="text-lg font-medium text-gray-900">{product?.name}</h3>
         </div>
         <div className="mt-4 ">
-          <p className="text-sm text-gray-700">${product?.price}</p>
-          <button className="mt-2 w-full rounded bg-primary-400 text-white p-4 text-sm font-medium uppercase transition hover:scale-105">
-            Add to Cart
+          <p className="text-sm text-gray-700 mb-4">${product?.price}</p>
+          <button
+            className="text-white w-full sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+            role="button"
+          >
+            <FaCartPlus className="me-2" />
+            Add to cart
           </button>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
