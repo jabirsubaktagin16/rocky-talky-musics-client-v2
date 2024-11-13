@@ -23,9 +23,19 @@ export const ProductSection: FC<HomePageProductSection> = ({
         </header>
 
         <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
+          slidesPerView={1}
+          spaceBetween={10}
           navigation={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+          }}
           autoplay={{
             delay: Math.floor(Math.random() * (2600 - 2500 + 1)) + 2600,
             disableOnInteraction: false,
@@ -38,7 +48,7 @@ export const ProductSection: FC<HomePageProductSection> = ({
           }}
         >
           {arrayList?.map((product: ProductProps) => (
-            <SwiperSlide>
+            <SwiperSlide key={product?._id}>
               <ProductCard product={product} />
             </SwiperSlide>
           ))}

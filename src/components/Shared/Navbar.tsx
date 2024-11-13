@@ -37,7 +37,7 @@ export const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-48 px-4 py-2 text-sm text-gray-900 bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-800 dark:text-white"
+                className="w-48 px-4 py-2 text-sm text-gray-900 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-800 dark:text-white"
               />
             </div>
             {currentUser ? (
@@ -64,10 +64,10 @@ export const Navbar = () => {
                       </span>
                     </Dropdown.Header>
                     <Dropdown.Item>
-                      <Link to={"/dashboard/my-profile"}>Dashboard</Link>
+                      <Link to={"/dashboard/my-profile"}>My Profile</Link>
                     </Dropdown.Item>
-                    <Dropdown.Item>Settings</Dropdown.Item>
-                    <Dropdown.Item>Earnings</Dropdown.Item>
+                    <Dropdown.Item>My Wishlist</Dropdown.Item>
+                    <Dropdown.Item>My Orders</Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item onClick={handleLogOut}>
                       Sign out
@@ -78,7 +78,7 @@ export const Navbar = () => {
             ) : (
               <Link
                 to={"/sign-in"}
-                className="text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-5 py-2.5 text-center dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800"
+                className="text-primary-700 hover:text-white border border-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-5 py-2 text-center dark:border-primary-500 dark:text-primary-500 dark:hover:text-white dark:hover:bg-primary-500 dark:focus:ring-primary-800"
               >
                 Join Now
               </Link>

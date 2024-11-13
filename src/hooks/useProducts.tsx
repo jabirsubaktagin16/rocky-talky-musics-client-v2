@@ -18,6 +18,23 @@ const useAllProducts = () => {
   return { products, loading, productsRefetch };
 };
 
+const useProductDetails = (id: string | null) => {
+  const axiosPublic = useAxiosPublic();
+  const {
+    data: product,
+    isPending: loading,
+    refetch,
+  } = useQuery({
+    queryKey: ["products", id],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/products/${id}`);
+      return res.data.data;
+    },
+  });
+
+  return { product, loading, refetch };
+};
+
 const useNewProducts = () => {
   const axiosPublic = useAxiosPublic();
   const {
@@ -37,5 +54,6 @@ const useNewProducts = () => {
 
 export const useProducts = {
   useAllProducts,
+  useProductDetails,
   useNewProducts,
 };

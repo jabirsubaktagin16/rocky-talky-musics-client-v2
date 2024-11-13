@@ -3,7 +3,7 @@ import music from "../../musical.json";
 
 export const Loading = () => {
   const style = {
-    height: 300,
+    height: 500,
   };
   return (
     <div

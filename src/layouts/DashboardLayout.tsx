@@ -1,7 +1,15 @@
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
+import useAuth from "../hooks/useAuth";
 
 export const DashboardLayout = () => {
+  const { currentUser, logout, loading, error } = useAuth();
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
@@ -50,7 +58,7 @@ export const DashboardLayout = () => {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                      src={currentUser?.userInfo?.avatar}
                       alt="user photo"
                     />
                   </button>
@@ -64,13 +72,14 @@ export const DashboardLayout = () => {
                       className="text-sm text-gray-900 dark:text-white"
                       role="none"
                     >
-                      Neil Sims
+                      {currentUser?.userInfo?.name?.firstName}{" "}
+                      {currentUser?.userInfo?.name?.lastName}
                     </p>
                     <p
                       className="text-sm font-medium text-gray-900 truncate dark:text-gray-300"
                       role="none"
                     >
-                      neil.sims@flowbite.com
+                      {currentUser?.userInfo?.email}
                     </p>
                   </div>
                   <ul className="py-1" role="none">
@@ -103,9 +112,9 @@ export const DashboardLayout = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                        role="menuitem"
+                        role="button"
+                        onClick={handleLogOut}
                       >
                         Sign out
                       </a>
