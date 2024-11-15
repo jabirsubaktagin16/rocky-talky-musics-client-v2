@@ -19,6 +19,19 @@ const useAuth = () => {
     (state: any) => state.user
   );
 
+  const signUp = async (userData: any) => {
+    try {
+      const response = await axios.post(`${API_URL}/auth/signup`, userData);
+      console.log(response);
+      if (response?.data?.success) {
+        login(userData);
+      }
+    } catch (err: any) {
+      const errorMessage = err.message;
+      return { success: false, error: errorMessage };
+    }
+  };
+
   // Login function
   const login = async (userData: any) => {
     dispatch(signInStart());
@@ -74,6 +87,7 @@ const useAuth = () => {
     currentUser,
     error,
     loading,
+    signUp,
     login,
     logout,
     getCurrentUser,

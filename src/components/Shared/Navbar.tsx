@@ -2,6 +2,7 @@ import { Avatar, Dropdown } from "flowbite-react";
 import { FaAngleDown, FaDrumSteelpan, FaThList } from "react-icons/fa";
 import {
   GiAccordion,
+  GiFlute,
   GiGuitar,
   GiPianoKeys,
   GiTrumpet,
@@ -156,6 +157,16 @@ export const Navbar = () => {
                   <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
                     <ul className="space-y-4">
                       <li>
+                        <Link
+                          to={"/products/flutes"}
+                          className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
+                        >
+                          <span className="sr-only">Flutes</span>
+                          <GiFlute className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+                          Flutes
+                        </Link>
+                      </li>
+                      <li>
                         <a
                           href="#"
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
@@ -176,6 +187,10 @@ export const Navbar = () => {
                           Keyboard
                         </a>
                       </li>
+                    </ul>
+                  </div>
+                  <div className="p-4 text-gray-900 dark:text-white">
+                    <ul className="space-y-4">
                       <li>
                         <a
                           href="#"
@@ -186,10 +201,6 @@ export const Navbar = () => {
                           Trumpet
                         </a>
                       </li>
-                    </ul>
-                  </div>
-                  <div className="p-4 text-gray-900 dark:text-white">
-                    <ul className="space-y-4">
                       <li>
                         <a
                           href="#"
