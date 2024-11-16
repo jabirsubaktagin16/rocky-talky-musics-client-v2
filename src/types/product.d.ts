@@ -9,8 +9,18 @@ export interface ProductProps {
   category: string;
   stock: number;
   images: Array<string>;
+  reviews?: Array<string>;
+  averageRating?: number;
+  reviewCount?: number;
 }
 
 export interface ProductCardProps {
   product: ProductProps;
+}
+
+export interface ReviewProps {
+  productId: string;
+  userId: string;
+  comment?: string;
+  rating?: number;
 }
