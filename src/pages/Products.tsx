@@ -8,10 +8,12 @@ import { Loading } from "../components/Shared/Loading";
 import { PageTitle } from "../components/Shared/PageTitle";
 import { useProducts } from "../hooks/useProducts";
 import { ProductProps } from "../types/product";
+import { utilityFunction } from "../utils/utilityFunction";
 
 export const Products = () => {
   const { category } = useParams();
   const { useAllProducts, useProductByCategory } = useProducts;
+  const { capitalizeFirstLetter } = utilityFunction;
 
   const [openModal, setOpenModal] = useState(false);
   const [products, setProducts] = useState(null);
@@ -46,7 +48,9 @@ export const Products = () => {
 
   return (
     <>
-      <PageTitle title={category ? category : "Products"} />
+      <PageTitle
+        title={category ? capitalizeFirstLetter(category) : "Products"}
+      />
       <section className="py-8 antialiased md:py-12">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div className="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
@@ -110,7 +114,7 @@ export const Products = () => {
                           />
                         </svg>
                         <span className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400 md:ms-2">
-                          {category}
+                          {capitalizeFirstLetter(category)}
                         </span>
                       </div>
                     </li>

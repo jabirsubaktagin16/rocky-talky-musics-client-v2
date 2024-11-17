@@ -1,13 +1,11 @@
 import { FC } from "react";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ProductCardProps } from "../types/product";
+import { utilityFunction } from "../utils/utilityFunction";
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const rating = product?.averageRating ?? 0;
-  const fullStars = Math.floor(rating); // Number of full stars
-  const hasHalfStar = rating % 1 >= 0.5; // Check if there's a half star
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Remaining blank stars
+  const { renderStars } = utilityFunction;
 
   return (
     <div className="rounded-lg border h-full border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -114,24 +112,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
         </Link>
 
         <div className="mt-2 flex items-center gap-2">
-          <div className="flex items-center">
-            {/* Render full stars */}
-            {Array(fullStars)
-              .fill()
-              .map((_, index) => (
-                <FaStar key={index} className="text-yellow-400" />
-              ))}
-
-            {/* Render half star if needed */}
-            {hasHalfStar && <FaStarHalfAlt className="text-yellow-400" />}
-
-            {/* Render empty stars */}
-            {Array(emptyStars)
-              .fill()
-              .map((_, index) => (
-                <FaRegStar key={index} className="text-yellow-400" />
-              ))}
-          </div>
+          <div className="flex items-center">{renderStars(rating)}</div>
 
           <p className="text-sm font-medium text-gray-900 dark:text-white">
             {product?.averageRating ? rating.toFixed(1) : "Not Rated yet"}
