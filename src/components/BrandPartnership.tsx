@@ -1,17 +1,17 @@
-import cfmartin from "../../assets/brand/cfmartin.png";
-import fender from "../../assets/brand/fender.png";
-import gibson from "../../assets/brand/gibson.png";
-import harman from "../../assets/brand/harman.png";
-import kawai from "../../assets/brand/kawai.png";
-import roland from "../../assets/brand/roland.png";
-import sennheiser from "../../assets/brand/sennheiser.png";
-import shure from "../../assets/brand/shure.png";
-import steinway from "../../assets/brand/steinway.png";
-import yamaha from "../../assets/brand/yamaha.png";
+import cfmartin from "../assets/brand/cfmartin.png";
+import fender from "../assets/brand/fender.png";
+import gibson from "../assets/brand/gibson.png";
+import harman from "../assets/brand/harman.png";
+import kawai from "../assets/brand/kawai.png";
+import roland from "../assets/brand/roland.png";
+import sennheiser from "../assets/brand/sennheiser.png";
+import shure from "../assets/brand/shure.png";
+import steinway from "../assets/brand/steinway.png";
+import yamaha from "../assets/brand/yamaha.png";
 
 export const BrandPartnership = () => {
   return (
-    <section className="py-10  sm:py-16 lg:py-24">
+    <section className="pb-10 sm:pb-16 lg:pb-24">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl font-bold text-gray-800 sm:text-4xl sm:leading-tight">

@@ -35,7 +35,7 @@ const useProductByCategory = (category: string | null | undefined) => {
   return { products, loading, refetch };
 };
 
-const useProductDetails = (id: string | null) => {
+const useProductDetails = (id: string | null | undefined) => {
   const axiosPublic = useAxiosPublic();
   const {
     data: product,

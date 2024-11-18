@@ -17,10 +17,3 @@ export interface ProductProps {
 export interface ProductCardProps {
   product: ProductProps;
 }
-
-export interface ReviewProps {
-  productId: string;
-  userId: string;
-  comment?: string;
-  rating?: number;
-}

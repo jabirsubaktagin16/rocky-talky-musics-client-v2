@@ -1,4 +1,5 @@
 import aboutUs from "../assets/jazz band-cuate.png";
+import { BrandPartnership } from "../components/BrandPartnership";
 import { PageTitle } from "../components/Shared/PageTitle";
 
 export const AboutUs = () => {
@@ -40,6 +41,7 @@ export const AboutUs = () => {
           </div>
         </div>
       </div>
+      <BrandPartnership />
     </section>
   );
 };

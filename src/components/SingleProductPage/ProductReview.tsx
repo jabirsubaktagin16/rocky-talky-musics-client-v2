@@ -1,16 +1,17 @@
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
+import { FC } from "react";
+import { FaStar } from "react-icons/fa";
 import { useReviews } from "../../hooks/useReviews";
-import { ReviewProps } from "../../types/product";
+import { ProductReviewCardProps } from "../../types/review";
+import { utilityFunction } from "../../utils/utilityFunction";
 import { ReviewCard } from "../ReviewCard";
 import { Loading } from "../Shared/Loading";
 
-export const ProductReview = ({ id }) => {
+export const ProductReview: FC<{ id: string | undefined }> = ({ id }) => {
   const { useReviewsByProductId } = useReviews;
   const { reviews, loading } = useReviewsByProductId(id);
   const rating = reviews?.averageRating ?? 0;
-  const fullStars = Math.floor(rating); // Number of full stars
-  const hasHalfStar = rating % 1 >= 0.5; // Check if there's a half star
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0); // Remaining blank stars
+
+  const { renderStars } = utilityFunction;
 
   if (loading) return <Loading />;
 
@@ -148,27 +149,7 @@ export const ProductReview = ({ id }) => {
                           : "Not Rated yet"}
                       </h2>
                       <div className="flex items-center gap-3 mb-4">
-                        {/* Render full stars */}
-                        {Array(fullStars)
-                          .fill()
-                          .map((_, index) => (
-                            <FaStar key={index} className="text-yellow-400" />
-                          ))}
-
-                        {/* Render half star if needed */}
-                        {hasHalfStar && (
-                          <FaStarHalfAlt className="text-yellow-400" />
-                        )}
-
-                        {/* Render empty stars */}
-                        {Array(emptyStars)
-                          .fill()
-                          .map((_, index) => (
-                            <FaRegStar
-                              key={index}
-                              className="text-yellow-400"
-                            />
-                          ))}
+                        {renderStars(rating)}
                       </div>
                       <p className="font-normal text-lg leading-8 text-gray-400">
                         {reviews?.totalReviews} Reviews
@@ -194,8 +175,8 @@ export const ProductReview = ({ id }) => {
               Reviews
             </h4>
             {reviews?.reviews.length > 0 ? (
-              reviews?.reviews.map((review: ReviewProps) => (
-                <ReviewCard key={review?._id} review={review} />
+              reviews?.reviews.map((review: ProductReviewCardProps) => (
+                <ReviewCard key={review._id} review={review} />
               ))
             ) : (
               <h2 className="mt-2 text-center text-3xl font-bold text-gray-600 dark:text-gray-100">

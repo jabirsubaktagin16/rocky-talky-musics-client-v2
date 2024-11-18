@@ -1,6 +1,7 @@
+import { FC } from "react";
 import { Helmet } from "react-helmet-async";
 
-export const PageTitle = ({ title }) => {
+export const PageTitle: FC<{ title: string }> = ({ title }) => {
   return (
     <Helmet>
       <title>

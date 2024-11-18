@@ -1,6 +1,8 @@
+import { FC } from "react";
 import { FaCartPlus, FaRegHeart } from "react-icons/fa";
+import { ProductCardProps } from "../../types/product";
 
-export const ProductInfo = ({ product }) => {
+export const ProductInfo: FC<ProductCardProps> = ({ product }) => {
   return (
     <section className="py-8 md:py-16 dark:bg-gray-900 antialiased">
       <div className="max-w-screen-xl px-4 mx-auto 2xl:px-0">

@@ -1,4 +1,3 @@
-import { BrandPartnership } from "../components/HomePage/BrandPartnership";
 import { FeaturedCategories } from "../components/HomePage/FeaturedCategories";
 import { ProductSection } from "../components/HomePage/ProductSection";
 import { TopBanner } from "../components/HomePage/TopBanner";
@@ -8,7 +7,7 @@ import { useProducts } from "../hooks/useProducts";
 
 export const Home = () => {
   const { useNewProducts } = useProducts;
-  const { products, loading, productsRefetch } = useNewProducts();
+  const { products, loading } = useNewProducts();
 
   if (loading) return <Loading />;
   return (
@@ -25,7 +24,6 @@ export const Home = () => {
         title="Best Sellers"
         paragraph="Shop our most popular instruments, chosen by musicians worldwide for their quality and performance. Find your favorite among the top picks that stand the test of time."
       /> */}
-      <BrandPartnership />
     </>
   );
 };
