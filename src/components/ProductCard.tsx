@@ -1,11 +1,29 @@
 import { FC } from "react";
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../redux/cart/cartSlice";
+import { CartItemProps } from "../types/cart";
 import { ProductCardProps } from "../types/product";
 import { utilityFunction } from "../utils/utilityFunction";
 
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   const rating = product?.averageRating ?? 0;
   const { renderStars } = utilityFunction;
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const item: CartItemProps = {
+      _id: product?._id,
+      name: product?.name,
+      price: product.price,
+      image: product?.images[0],
+      quantity: 1,
+    };
+
+    dispatch(addToCart(item));
+    toast.success("Item added to Cart successfully");
+  };
 
   return (
     <div className="rounded-lg border h-full border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -130,6 +148,7 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
           <button
             type="button"
             className="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            onClick={handleAddToCart}
           >
             <svg
               className="-ms-2 me-2 h-5 w-5"

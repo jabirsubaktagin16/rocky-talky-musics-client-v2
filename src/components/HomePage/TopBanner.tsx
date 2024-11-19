@@ -26,7 +26,7 @@ export const TopBanner = () => {
       pagination={pagination}
       effect={"fade"}
       modules={[Pagination, Autoplay]}
-      className="mySwiper"
+      className="mySwiper -z-10"
       style={{
         "--swiper-pagination-color": "#fff",
         "--swiper-pagination-bullet-inactive-color": "#999999",

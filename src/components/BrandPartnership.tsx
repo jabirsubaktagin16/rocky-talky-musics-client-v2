@@ -87,7 +87,7 @@ export const BrandPartnership = () => {
 
           <div className="hidden md:block">
             <img
-              className="object-contain w-full h-8 mx-auto"
+              className="object-contain w-full h-20 mx-auto"
               src={harman}
               alt="Harman"
             />
