@@ -33,7 +33,7 @@ export const ProductSection: FC<HomePageProductSection> = ({
             },
             1024: {
               slidesPerView: 4,
-              spaceBetween: 40,
+              spaceBetween: 16,
             },
           }}
           autoplay={{

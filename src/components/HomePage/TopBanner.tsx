@@ -49,7 +49,7 @@ export const TopBanner = () => {
           backgroundColor={"bg-[#36a362]"}
           heading={"Experience the Grace of the Violin!"}
           paragraph={
-            "Shop our range of violins, from classical to modern styles. Each piece is crafted to deliver the beautiful, soulful sounds that make the violin unforgettable"
+            "Shop our range of violins, from classical to modern styles. Each piece is crafted to deliver the soulful sounds that make the violin unforgettable"
           }
           imgSrc={two}
         />

@@ -5,6 +5,7 @@ import { Main } from "../../layouts/Main";
 import { AboutUs } from "../../pages/AboutUs";
 import { SignIn } from "../../pages/Authentication/SignIn";
 import { SignUp } from "../../pages/Authentication/SignUp";
+import { Cart } from "../../pages/Cart";
 import { MyProfile } from "../../pages/Dashboard/MyProfile";
 import { Home } from "../../pages/Home";
 import { ProductDetails } from "../../pages/ProductDetails";
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: "products/details/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "about-us",

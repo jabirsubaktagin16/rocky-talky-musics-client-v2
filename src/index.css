@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Unica+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Unica+One&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: "Crimson Text";
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   background-color: var(--background-50);
 }
@@ -172,7 +172,8 @@ small {
   }
 }
 
-.swiper-button-next,.swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   size: 10px;
   background-color: #8a4fe3;
   color: white;
