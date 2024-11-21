@@ -23,7 +23,8 @@ export const TopBannerFile: FC<TopBannerFileProps> = ({
 
           <div className="mt-4 md:mt-8">
             <Link
-              to={url}
+              role="button"
+              to={`/products/${url}`}
               className={`inline-block rounded bg-transparent px-12 py-3 text-sm border border-white font-medium text-white transition hover:bg-opacity-90 focus:outline-none focus:ring focus:ring-yellow-400`}
             >
               Get Started Today

@@ -26,7 +26,7 @@ export const TopBanner = () => {
       pagination={pagination}
       effect={"fade"}
       modules={[Pagination, Autoplay]}
-      className="mySwiper -z-10"
+      className="mySwiper"
       style={{
         "--swiper-pagination-color": "#fff",
         "--swiper-pagination-bullet-inactive-color": "#999999",
@@ -42,6 +42,7 @@ export const TopBanner = () => {
             "Discover bass guitars that bring depth to any song. Essential for setting the groove, our bass selection adds the perfect pulse to your music collection"
           }
           imgSrc={one}
+          url={"guitars"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -52,6 +53,7 @@ export const TopBanner = () => {
             "Shop our range of violins, from classical to modern styles. Each piece is crafted to deliver the soulful sounds that make the violin unforgettable"
           }
           imgSrc={two}
+          url={"violins"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -62,6 +64,7 @@ export const TopBanner = () => {
             "Our drum collection has everything to bring your beat to life. Whether for studio or stage, find drum sets that lay down an energetic foundation"
           }
           imgSrc={three}
+          url={"drums"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -72,6 +75,7 @@ export const TopBanner = () => {
             "Explore the soothing, ethereal sounds of the flute. Our collection is crafted to produce pure, enchanting tones, perfect for any musical style"
           }
           imgSrc={four}
+          url={"flutes"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -82,6 +86,7 @@ export const TopBanner = () => {
             "Our keyboards deliver harmonies across genres. With versatile models to choose from, find the right fit for your music journey"
           }
           imgSrc={five}
+          url={"keyboards"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -92,6 +97,7 @@ export const TopBanner = () => {
             "Browse trumpets designed for vibrant, clear sound. Perfect for jazz, classical, or marching bands, each trumpet brings unmatched clarity and style"
           }
           imgSrc={six}
+          url={"trumpets"}
         />
       </SwiperSlide>
       <SwiperSlide>
@@ -102,6 +108,7 @@ export const TopBanner = () => {
             "Add character to your music with our accordion selection. Known for its dynamic sound, the accordion captures the spirit of folk traditions beautifully"
           }
           imgSrc={seven}
+          url={"accordions"}
         />
       </SwiperSlide>
     </Swiper>

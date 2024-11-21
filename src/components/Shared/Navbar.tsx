@@ -98,7 +98,7 @@ export const Navbar = () => {
               <PopoverPanel
                 transition
                 anchor="bottom"
-                className="mt-4 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
+                className="z-10 mt-4 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
               >
                 <div
                   className="relative w-screen max-w-sm border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8"
@@ -235,25 +235,25 @@ export const Navbar = () => {
                         </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to={"/products/drums"}
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
                           <span className="sr-only">Fish</span>
                           <FaDrumSteelpan className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
                           Drums
-                        </a>
+                        </Link>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to={"/products/keyboards"}
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
                           <span className="sr-only">Birds</span>
                           <GiPianoKeys className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
                           Keyboard
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
