@@ -4,8 +4,9 @@ import {
   PopoverButton,
   PopoverPanel,
 } from "@headlessui/react";
-import { Avatar, Dropdown } from "flowbite-react";
-import { FaAngleDown, FaDrumSteelpan, FaThList } from "react-icons/fa";
+import { Avatar, Dropdown, MegaMenu } from "flowbite-react";
+import { CgComment } from "react-icons/cg";
+import { FaDrumSteelpan, FaThList } from "react-icons/fa";
 import {
   GiAccordion,
   GiFlute,
@@ -15,7 +16,6 @@ import {
   GiViolin,
 } from "react-icons/gi";
 import { IoCartSharp } from "react-icons/io5";
-import { SiAnimalplanet } from "react-icons/si";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import useAuth from "../../hooks/useAuth";
@@ -172,24 +172,13 @@ export const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <button
-                  id="mega-menu-icons-dropdown-button"
-                  data-dropdown-toggle="mega-menu-icons-dropdown"
-                  className="flex items-center justify-between w-full px-3 font-medium uppercase text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-primary-500 md:p-0 dark:text-white md:dark:hover:text-primary-500 dark:hover:bg-gray-700 dark:hover:text-primary-500 md:dark:hover:bg-transparent dark:border-gray-700"
+              <li className="hover:text-primary-500">
+                <MegaMenu.Dropdown
+                  className="rounded-none"
+                  toggle={<div className="uppercase">Products</div>}
                 >
-                  Products
-                  <FaAngleDown />
-                </button>
-                <div
-                  id="mega-menu-icons-dropdown"
-                  className="absolute z-10 grid hidden w-auto grid-cols-2 text-sm bg-white border border-gray-100 shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700"
-                >
-                  <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                    <ul
-                      className="space-y-4"
-                      aria-labelledby="mega-menu-icons-dropdown-button"
-                    >
+                  <ul className="grid grid-cols-3">
+                    <div className="space-y-4 p-4">
                       <li>
                         <Link
                           to={"/products"}
@@ -220,10 +209,6 @@ export const Navbar = () => {
                           Violin
                         </Link>
                       </li>
-                    </ul>
-                  </div>
-                  <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                    <ul className="space-y-4">
                       <li>
                         <Link
                           to={"/products/flutes"}
@@ -234,6 +219,8 @@ export const Navbar = () => {
                           Flutes
                         </Link>
                       </li>
+                    </div>
+                    <div className="space-y-4 p-4">
                       <li>
                         <Link
                           to={"/products/drums"}
@@ -244,7 +231,6 @@ export const Navbar = () => {
                           Drums
                         </Link>
                       </li>
-
                       <li>
                         <Link
                           to={"/products/keyboards"}
@@ -255,19 +241,15 @@ export const Navbar = () => {
                           Keyboard
                         </Link>
                       </li>
-                    </ul>
-                  </div>
-                  <div className="p-4 text-gray-900 dark:text-white">
-                    <ul className="space-y-4">
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          to={"/products/trumpets"}
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
                           <span className="sr-only">Trumpet</span>
                           <GiTrumpet className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
                           Trumpet
-                        </a>
+                        </Link>
                       </li>
                       <li>
                         <a
@@ -279,20 +261,21 @@ export const Navbar = () => {
                           Accordion
                         </a>
                       </li>
-
+                    </div>
+                    <div className="space-y-4 p-4">
                       <li>
                         <a
                           href="#"
                           className="flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-500 group"
                         >
                           <span className="sr-only">Others</span>
-                          <SiAnimalplanet className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
+                          <CgComment className="me-2 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-500" />
                           Others
                         </a>
                       </li>
-                    </ul>
-                  </div>
-                </div>
+                    </div>
+                  </ul>
+                </MegaMenu.Dropdown>
               </li>
               <li>
                 <Link
