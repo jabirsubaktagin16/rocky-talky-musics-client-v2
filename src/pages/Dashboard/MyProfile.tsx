@@ -1,3 +1,10 @@
+import { PageTitle } from "../../components/Shared/PageTitle";
+
 export const MyProfile = () => {
-  return <div>MyProfile</div>;
+  return (
+    <>
+      <PageTitle title={"My Profile"} />
+      <div>MyProfile</div>
+    </>
+  );
 };
