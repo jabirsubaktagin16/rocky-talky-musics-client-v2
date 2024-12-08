@@ -1,10 +1,5 @@
-import {
-  CloseButton,
-  Popover,
-  PopoverButton,
-  PopoverPanel,
-} from "@headlessui/react";
-import { Avatar, Dropdown, MegaMenu } from "flowbite-react";
+import { Avatar, Drawer, Dropdown, MegaMenu } from "flowbite-react";
+import { useState } from "react";
 import { CgComment } from "react-icons/cg";
 import { FaDrumSteelpan, FaThList } from "react-icons/fa";
 import {
@@ -28,6 +23,10 @@ export const Navbar = () => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleClose = () => setIsOpen(false);
 
   return (
     <>
@@ -91,68 +90,12 @@ export const Navbar = () => {
                 Join Now
               </Link>
             )}
-            <Popover>
-              <PopoverButton className="block text-sm/6 font-semibold text-gray-600  focus:outline-none data-[active]:text-primary-600 data-[hover]:text-primary-600 data-[focus]:outline-1">
-                <IoCartSharp />
-              </PopoverButton>
-              <PopoverPanel
-                transition
-                anchor="bottom"
-                className="z-10 mt-4 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0"
-              >
-                <div
-                  className="relative w-screen max-w-sm border border-gray-600 bg-gray-100 px-4 py-8 sm:px-6 lg:px-8"
-                  aria-modal="true"
-                  role="dialog"
-                  tabIndex={-1}
-                >
-                  <CloseButton className="absolute end-4 top-4 text-gray-600 transition hover:scale-110">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="size-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </CloseButton>
+            <IoCartSharp
+              role="button"
+              onClick={() => setIsOpen(true)}
+              className="block text-sm/6 font-semibold text-gray-600  focus:outline-none data-[active]:text-primary-600 data-[hover]:text-primary-600 data-[focus]:outline-1"
+            />
 
-                  <div className="mt-4 space-y-6">
-                    <ul className="space-y-4">
-                      <NavbarCartItem />
-                      <NavbarCartItem />
-                      <NavbarCartItem />
-                    </ul>
-
-                    <div className="space-y-4 text-center">
-                      <a
-                        href="#"
-                        className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400"
-                      >
-                        View my cart (2)
-                      </a>
-
-                      <a
-                        href="#"
-                        className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
-                      >
-                        Checkout
-                      </a>
-
-                      <CloseButton className="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600">
-                        Continue Shopping
-                      </CloseButton>
-                    </div>
-                  </div>
-                </div>
-              </PopoverPanel>
-            </Popover>
             {/* <button className="text-gray-600 dark:text-white focus:outline-none hover:text-primary-600">
               <IoCartSharp />
             </button> */}
@@ -297,6 +240,45 @@ export const Navbar = () => {
           </div>
         </div>
       </nav>
+      <Drawer
+        className="border-gray-600 bg-gray-100"
+        open={isOpen}
+        onClose={handleClose}
+        position="right"
+      >
+        <Drawer.Header title="CART" titleIcon={() => <></>} />
+        <Drawer.Items>
+          <ul className="space-y-4">
+            <NavbarCartItem />
+            <NavbarCartItem />
+            <NavbarCartItem />
+          </ul>
+
+          <div className="mt-4 space-y-4 text-center">
+            <Link
+              to={"/cart"}
+              onClick={handleClose}
+              className="block rounded border border-gray-600 px-5 py-3 text-sm text-gray-600 transition hover:ring-1 hover:ring-gray-400"
+            >
+              View my cart (2)
+            </Link>
+
+            <a
+              href="#"
+              className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+            >
+              Checkout
+            </a>
+
+            <button
+              onClick={handleClose}
+              className="inline-block text-sm text-gray-500 underline underline-offset-4 transition hover:text-gray-600"
+            >
+              Continue shopping
+            </button>
+          </div>
+        </Drawer.Items>
+      </Drawer>
     </>
   );
 };

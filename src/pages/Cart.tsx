@@ -2,7 +2,7 @@ import { FaCircleCheck, FaRegCircleCheck } from "react-icons/fa6";
 
 export const Cart = () => {
   return (
-    <section className="py-8 antialiased md:py-16">
+    <section className="py-4 antialiased md:py-8">
       <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <ol className="items-center flex w-full max-w-2xl text-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-base">
           <li className="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">

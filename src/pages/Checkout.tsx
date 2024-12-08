@@ -1,6 +1,6 @@
 export const Checkout = () => {
   return (
-    <section className="py-8 antialiased md:py-16">
+    <section className="py-4 antialiased md:py-8">
       <form action="#" className="mx-auto max-w-screen-xl px-4 2xl:px-0">
         <ol className="items-center flex w-full max-w-2xl text-center text-sm font-medium text-gray-500 dark:text-gray-400 sm:text-base">
           <li className="after:border-1 flex items-center text-primary-700 after:mx-6 after:hidden after:h-1 after:w-full after:border-b after:border-gray-200 dark:text-primary-500 dark:after:border-gray-700 sm:after:inline-block sm:after:content-[''] md:w-full xl:after:mx-10">
@@ -81,7 +81,7 @@ export const Checkout = () => {
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label
-                    for="your_name"
+                    htmlFor="your_name"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -98,7 +98,7 @@ export const Checkout = () => {
 
                 <div>
                   <label
-                    for="your_email"
+                    htmlFor="your_email"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -116,7 +116,7 @@ export const Checkout = () => {
                 <div>
                   <div className="mb-2 flex items-center gap-2">
                     <label
-                      for="select-country-input-3"
+                      htmlFor="select-country-input-3"
                       className="block text-sm font-medium text-gray-900 dark:text-white"
                     >
                       {" "}
@@ -138,7 +138,7 @@ export const Checkout = () => {
                 <div>
                   <div className="mb-2 flex items-center gap-2">
                     <label
-                      for="select-city-input-3"
+                      htmlFor="select-city-input-3"
                       className="block text-sm font-medium text-gray-900 dark:text-white"
                     >
                       {" "}
@@ -159,7 +159,7 @@ export const Checkout = () => {
 
                 <div>
                   <label
-                    for="phone-input-3"
+                    htmlFor="phone-input-3"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -750,7 +750,7 @@ export const Checkout = () => {
 
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -767,7 +767,7 @@ export const Checkout = () => {
 
                 <div>
                   <label
-                    for="company_name"
+                    htmlFor="company_name"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -784,7 +784,7 @@ export const Checkout = () => {
 
                 <div>
                   <label
-                    for="vat_number"
+                    htmlFor="vat_number"
                     className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
                   >
                     {" "}
@@ -849,7 +849,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="credit-card"
+                        htmlFor="credit-card"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -898,7 +898,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="pay-on-delivery"
+                        htmlFor="pay-on-delivery"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -947,7 +947,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="paypal-2"
+                        htmlFor="paypal-2"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -1005,7 +1005,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="dhl"
+                        htmlFor="dhl"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -1036,7 +1036,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="fedex"
+                        htmlFor="fedex"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -1067,7 +1067,7 @@ export const Checkout = () => {
 
                     <div className="ms-4 text-sm">
                       <label
-                        for="express"
+                        htmlFor="express"
                         className="font-medium leading-none text-gray-900 dark:text-white"
                       >
                         {" "}
@@ -1087,7 +1087,7 @@ export const Checkout = () => {
 
             <div>
               <label
-                for="voucher"
+                htmlFor="voucher"
                 className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
               >
                 {" "}
